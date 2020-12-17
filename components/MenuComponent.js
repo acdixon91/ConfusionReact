@@ -1,13 +1,26 @@
-import React from "react";
-import { View, FlatList } from "react-native";
+import React, { useState, useEffect } from "react";
+import { SafeAreaView } from "react-native";
+import { Text, View, Image, FlatList, StyleSheet } from "react-native";
 import { ListItem, Avatar } from "react-native-elements";
+import { DISHES } from "../shared/dishes";
 
-function Menu(props) {
-  const keyExtractor = (item, index) => index.toString();
+function Menu({ navigation }) {
+  const [dishes, setDishes] = useState(DISHES);
 
   const rednerMenuItem = ({ item }) => (
-    <ListItem bottomDivider>
-      <Avatar source={require("../shared//images/buffet.jpg")} />
+    <ListItem
+      bottomDivider
+      onPress={() => {
+        navigation.navigate("Dish", { dishId: item.id });
+        console.log("Nav test", item.id);
+      }}
+    >
+      <Avatar
+        rounded
+        source={{
+          uri: "https://reactjs.org/logo-og.png",
+        }}
+      />
       <ListItem.Content>
         <ListItem.Title>{item.name}</ListItem.Title>
         <ListItem.Subtitle>{item.description}</ListItem.Subtitle>
@@ -17,11 +30,13 @@ function Menu(props) {
   );
 
   return (
-    <FlatList
-      keyExtractor={keyExtractor}
-      data={props.dishes}
-      renderItem={rednerMenuItem}
-    />
+    <SafeAreaView>
+      <FlatList
+        data={dishes}
+        renderItem={rednerMenuItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    </SafeAreaView>
   );
 }
 
