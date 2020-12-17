@@ -1,12 +1,12 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-function TestComp() {
+function Home() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-      <Text>Test Comp</Text>
+      <Text>Home Component</Text>
     </View>
   );
 }
 
-export default TestComp;
+export default Home;
