@@ -1,13 +1,13 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../HomeComponent";
 import { Button } from "react-native-elements";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import Contact from "../ContactComponent";
 
 const Stack = createStackNavigator();
 const hamIcon = <FontAwesome5 name={"bars"} size={23} color="white" />;
 
-const HomeStackNavigator = ({ navigation }) => {
+const ContactStackNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator
       screenOptions={{
@@ -22,8 +22,8 @@ const HomeStackNavigator = ({ navigation }) => {
       }}
     >
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="Contact"
+        component={Contact}
         options={{
           headerLeft: () => (
             <Button
@@ -32,7 +32,6 @@ const HomeStackNavigator = ({ navigation }) => {
               onPress={() => navigation.toggleDrawer()}
               type="clear"
               buttonStyle={{
-                color: "white",
                 marginLeft: 15,
                 width: 50,
                 height: 40,
@@ -43,9 +42,8 @@ const HomeStackNavigator = ({ navigation }) => {
             />
           ),
         }}
-      ></Stack.Screen>
+      />
     </Stack.Navigator>
   );
 };
-
-export default HomeStackNavigator;
+export default ContactStackNavigator;

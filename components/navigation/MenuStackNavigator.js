@@ -6,7 +6,7 @@ import { Button } from "react-native-elements";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
 
 const Stack = createStackNavigator();
-const hamIcon = <FontAwesome5 name={"bars"} />;
+const hamIcon = <FontAwesome5 name={"bars"} size={23} color="white" />;
 
 const MenuStackNavigator = ({ navigation }) => {
   return (
@@ -15,6 +15,7 @@ const MenuStackNavigator = ({ navigation }) => {
       screenOptions={{
         headerStyle: {
           backgroundColor: "#512DA8",
+          height: 80,
         },
         headerTintColor: "#fff",
         headerTitleStyle: {
@@ -33,10 +34,9 @@ const MenuStackNavigator = ({ navigation }) => {
               onPress={() => navigation.toggleDrawer()}
               type="clear"
               buttonStyle={{
-                backgroundColor: "#ff7626",
                 marginLeft: 15,
-                width: 40,
-                height: 30,
+                width: 50,
+                height: 40,
               }}
               titleStyle={{
                 color: "white",

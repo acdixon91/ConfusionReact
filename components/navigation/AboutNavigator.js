@@ -1,15 +1,16 @@
 import React from "react";
 import { createStackNavigator } from "@react-navigation/stack";
-import Home from "../HomeComponent";
 import { Button } from "react-native-elements";
 import FontAwesome5 from "react-native-vector-icons/FontAwesome5";
+import About from "../AboutComponent";
 
 const Stack = createStackNavigator();
 const hamIcon = <FontAwesome5 name={"bars"} size={23} color="white" />;
 
-const HomeStackNavigator = ({ navigation }) => {
+const AboutStackNavigator = ({ navigation }) => {
   return (
     <Stack.Navigator
+      initialRouteName="Menu"
       screenOptions={{
         headerStyle: {
           backgroundColor: "#512DA8",
@@ -22,8 +23,8 @@ const HomeStackNavigator = ({ navigation }) => {
       }}
     >
       <Stack.Screen
-        name="Home"
-        component={Home}
+        name="About"
+        component={About}
         options={{
           headerLeft: () => (
             <Button
@@ -32,7 +33,6 @@ const HomeStackNavigator = ({ navigation }) => {
               onPress={() => navigation.toggleDrawer()}
               type="clear"
               buttonStyle={{
-                color: "white",
                 marginLeft: 15,
                 width: 50,
                 height: 40,
@@ -43,9 +43,8 @@ const HomeStackNavigator = ({ navigation }) => {
             />
           ),
         }}
-      ></Stack.Screen>
+      />
     </Stack.Navigator>
   );
 };
-
-export default HomeStackNavigator;
+export default AboutStackNavigator;
